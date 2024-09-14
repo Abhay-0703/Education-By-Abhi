@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English By Abhi</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="box-3d">
+            <h1>Education By Abhi</h1>
+        </div>
+    </header>
+    
+    
+    
+    
+    
+    
+    <!-- Logo in center -->
+    <div class="centered-content">
+        <img src="logo.png" alt="logo" class="logo">
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+        
+        <!-- Buttons in 2x2 table arrangement -->
+        <div class="button-grid">
+            <a href="english.html" class="button-3d">English</a>
+        
+        <div id="refresh-button" style="position: fixed; bottom: 20px; right: 20px; background-color: #333; color: #fff; padding: 10px; border-radius: 5px; cursor: pointer;">
+Refresh
+</div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+        /* Bell Icon */
+        .bell-container {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            
+        }
+
+        .bell {
+            font-size: 50px;
+            cursor: pointer;
+            transform: rotateX(0deg);
+            transition: transform 0.5s;
+            display: none; /* Initially hidden */
+        }
+
+        .bell:hover {
+            transform: rotateX(360deg);
+        }
+
+        /* Popup Styling */
+        .bell-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            animation: popupAppear 0.5s;
+        }
+
+        .bell-popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transform: rotateY(0deg);
+            transition: transform 0.5s;
+            perspective: 1000px;
+        }
+
+        .bell-popup-content:hover {
+            transform: rotateY(360deg);
+        }
+
+        .bell-back {
+            margin-top: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* Popup Appear Animation */
+        @keyframes popupAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* User Information Section */
+        .info-container {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .info-container h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Bell Icon -->
+    <div class="bell-container">
+        <div id="bell" class="bell" onclick="showPopup()">
+            🔔
+        </div>
+    </div>
+
+    <!-- Popup Window -->
+    <div id="bell-popup" class="bell-popup">
+        <div class="bell-popup-content">
+            <h2>New Notification</h2>
+            <p id="bell-details"></p>
+            <button id="bell-back" class="bell-back" onclick="hidePopup()">Back</button>
+        </div>
+    </div>
+
+    <!-- User Information Section -->
+    <div class="info-container" id="info-container" style="display: none">
+        <h2>Welcome to Our Website!</h2>
+        <p>
+          hi
+        </p>
+    </div>
+
+    <script>
+        // Simulated new data (For demonstration purposes)
+        const newData = "You have a new notification! This is the updated message content.";
+
+        // Function to check if notification is viewed (Stored in localStorage)
+        function isBellVisible() {
+            return localStorage.getItem("bellViewed") !== "true";
+        }
+
+        // Function to display the bell icon if new data is added
+        function showBellIcon() {
+            if (isBellVisible()) {
+                document.getElementById('bell').style.display = 'block';
+            } else {
+                document.getElementById('bell').style.display = 'none';
+            }
+        }
+
+        // Function to show popup
+        function showPopup() {
+            document.getElementById('bell-popup').style.display = 'flex';
+            document.getElementById('bell-details').innerText = newData;
+        }
+
+        // Function to hide popup and mark notification as viewed
+        function hidePopup() {
+            document.getElementById('bell-popup').style.display = 'none';
+            localStorage.setItem("bellViewed", "true");  // Mark the notification as viewed
+            document.getElementById('bell').style.display = 'none';  // Hide the bell
+        }
+
+        // Function to detect changes in the info-container
+        function detectChanges() {
+            const infoContainer = document.getElementById('info-container');
+            const lastModified = localStorage.getItem("infoLastModified");
+            
+            if (lastModified && lastModified !== infoContainer.innerHTML) {
+                // Show the bell icon if content has changed
+                localStorage.setItem("bellViewed", "false");
+                showBellIcon();
+            }
+            
+            // Save current content to localStorage
+            localStorage.setItem("infoLastModified", infoContainer.innerHTML);
+        }
+
+        // Event listener to display bell icon on page load if there's new data
+        window.onload = function() {
+            detectChanges();  // Check for changes in info-container
+            showBellIcon();
+        };
+
+        // Periodically check for changes every 5 seconds (for demo purposes)
+        setInterval(detectChanges, 5000);
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+</body>
+<script>
+document.getElementById("refresh-button").addEventListener("click", function(){
+location.reload();
+});
+</script>
+    
+</html>

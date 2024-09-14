@@ -1,0 +1,119 @@
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    overflow: auto;
+    color: white;
+}
+
+.tenseexplain {
+  background: #000000;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 20px;
+  width: 80%; /* Adjusted width (you can change this value) */
+  margin: auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow-y: auto; /* To allow scrolling */
+  max-height: 60vh; /* Reduced height (you can change this value) */
+  position: relative;
+  color: #F1FF07;
+}
+
+.tenseexplain ul {
+    padding-left: 20px; /* Add some padding to the left for the list */
+    margin-bottom: 20px; /* Add spacing between lists */
+}
+
+.tenseexplain li {
+    margin-bottom: 10px; /* Add spacing between list items */
+    color: #07FBFF; /* Ensure list items are visible */
+}
+
+.tenseexplain p {
+    color: #00FFD4;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    margin-top: 15px;
+}
+
+h1, h2, h3, h4 {
+    margin-top: 10px;
+    color: #FFF900;
+}
+
+/* Button grid styling */
+.button-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2x2 grid */
+    gap: 9px; /* Space between buttons */
+    justify-items: center; /* Center buttons in grid */
+    bottom: 10px;
+}
+
+/* 3D Button (Anchor) styling */
+.button-3d {
+    display: inline-block;
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 40px;
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px #005f7a;
+    width: 170px; /* Set button width */
+}
+
+/* Button hover effect */
+.button-3d:hover {
+    background-color: #007B9C;
+    transform: translateY(-4px);
+    box-shadow: 0 8px #005f7a;
+}
+
+/* Button active effect */
+.button-3d:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px #005f7a;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .button-3d {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .button-3d {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
