@@ -137,135 +137,106 @@ h1 {
 
 
 
-.login-container {
-            position: center;
-            width: 320px;
-            height: 400px;
-            transform-style: preserve-3d;
-            transform: rotateY(0deg);
-            transition: transform 0.8s;
-        }
-
-        .login-form {
+        /* 3D Notification Button */
+        #notificationbutton {
             position: fixed;
-            width: 90%;
-            height: 80%;
-            padding: 20px;
-            background: linear-gradient(145deg, #444, #666);
-            border-radius: 15px;
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), inset 0 -5px 10px rgba(0, 0, 0, 0.2);
-            transform: rotateY(0deg);
-            transform-style: preserve-3d;
-            color: #fff;
-            text-align: center;
-            z-index: 1;
-        }
-
-        .login-form h2 {
-            margin: 0 0 20px;
-            font-size: 28px;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        .login-form input {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            color: #333;
-            background: #fff;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .login-form button {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            background: #00aaff;
-            color: #fff;
-            font-size: 18px;
+            top: 80px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #008CBA;
+            color: white;
+            font-size: 2rem;
+            border-radius: 70%;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0.7, 0.9) ;
             cursor: pointer;
-            transition: background 0.3s, box-shadow 0.3s;
+            border: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            z-index: 1001;
+            
         }
 
-        .login-form button:hover {
-            background: #0077cc;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        #notificationbutton:hover {
+            transform: translateY(-3px);
+            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5);
         }
 
-        /* Access Denied Container */
-        .access-denied-container {
+        /* Background Overlay */
+        .overlay {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
             z-index: 1000;
-            perspective: 1000px;
-            transform-style: preserve-3d;
         }
 
-        .access-denied-form {
-            position: relative;
-            width: 320px;
+        /* 3D Pop-up Window */
+        #notificationpopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 400px;
+            background-color: white;
             padding: 20px;
-            background: linear-gradient(145deg, #d9534f, #c9302c);
-            border-radius: 15px;
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), inset 0 -5px 10px rgba(0, 0, 0, 0.2);
-            color: #fff;
+            border-radius: 10px;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4);
+            z-index: 1001;
+        }
+
+        #notificationpopup h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #333;
             text-align: center;
-            transform: rotateY(0deg);
-            transform-style: preserve-3d;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        .access-denied-form h2 {
-            margin: 0 0 20px;
-            font-size: 28px;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        .access-denied-form p {
-            margin: 0 0 20px;
-            font-size: 16px;
-        }
-
-        .access-denied-form button {
+        /* Table Styles */
+        #Notificationtable {
             width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            background: #28a745;
-            color: #fff;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background 0.3s, box-shadow 0.3s;
+            border-collapse: ;
+            margin-top: 20px;
         }
 
-        .access-denied-form button:hover {
-            background: #218838;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        #Notificationtable th, #Notificationtable td {
+            border: 1px solid #000000;
+            padding: 10px;
+            text-align: left;
         }
 
-        .access-denied-form .close-btn {
+        #Notificationtable th {
+            background-color: #008CBA;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        #Notificationtable td {
+            background-color: #7D6666;
+            
+        }
+
+        /* Close Button */
+        .close-btn {
             position: absolute;
             top: 10px;
             right: 10px;
-            background: transparent;
+            font-size: 1.5rem;
+            background-color: transparent;
             border: none;
-            font-size: 24px;
+            color: #333;
             cursor: pointer;
-            color: #fff;
         }
- .close-btn{
-   text-align: right;
- }
-        .hidden {
-            display: none;
+
+        /* Responsive Styling */
+        @media (max-width: 500px) {
+            #notificationpopup {
+                width: 90%;
+                max-width: 300px;
+            }
         }
