@@ -76,171 +76,58 @@ Refresh
 
 
 
-<style>
-        /* Bell Icon */
-        .bell-container {
-            position: fixed;
-            top: 90px;
-            right: 20px;
-            
-        }
+<    <!-- 3D Notification Button -->
+    <button id="notificationbutton">💭</button>
 
-        .bell {
-            font-size: 50px;
-            cursor: pointer;
-            transform: rotateX(0deg);
-            transition: transform 0.5s;
-            display: none; /* Initially hidden */
-        }
+    <!-- Background Overlay -->
+    <div class="overlay" id="overlay"></div>
 
-        .bell:hover {
-            transform: rotateX(360deg);
-        }
+    <!-- 3D Pop-up Window -->
+    <div id="notificationpopup">
+        <button class="close-btn" id="closepopup">&times;</button>
+        <h2>Latest Updates</h2>
 
-        /* Popup Styling */
-        .bell-popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            animation: popupAppear 0.5s;
-        }
-
-        .bell-popup-content {
-            background-color: black;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            transform: rotateY(0deg);
-            transition: transform 0.5s;
-            perspective: 1000px;
-            border: solid black 2px ;
-        }
-
-        .bell-popup-content:hover {
-            transform: rotateY(360deg);
-        }
-
-        .bell-back {
-            margin-top: 20px;
-            padding: 10px 20px;
-            cursor: pointer;
-            border: none;
-            background-color: #333;
-            color: white;
-            border-radius: 5px;
-        }
-
-        /* Popup Appear Animation */
-        @keyframes popupAppear {
-            from {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        /* User Information Section */
-        .info-container {
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-        }
-
-        .info-container h2 {
-            margin-top: 0;
-        }
-    </style>
-</head>
-<body>
-    <!-- Bell Icon -->
-    <div class="bell-container">
-        <div id="bell" class="bell" onclick="showPopup()">
-            🔔
-        </div>
-    </div>
-
-    <!-- Popup Window -->
-    <div id="bell-popup" class="bell-popup">
-        <div class="bell-popup-content">
-            <h2>New Notification</h2>
-            <p id="bell-details"></p>
-            <button id="bell-back" class="bell-back" onclick="hidePopup()">Back</button>
-        </div>
-    </div>
-
-    <!-- User Information Section -->
-    <div class="info-container" id="info-container" style="display: none">
-        <h2>Welcome to Our Website!</h2>
-        <p>
-          h
-        </p>
+        <!-- Notification Table -->
+        <table id="Notificationtable">
+            <tr>
+                <th>Date</th>
+                <th>Update</th>
+            </tr>
+            <tr>
+                <td>2024-09-16</td>
+                <td>New feature added to the system</td>
+            </tr>
+            <tr>
+                <td>2024-09-10</td>
+                <td>Bug fixes and performance improvements</td>
+            </tr>
+        </table>
     </div>
 
     <script>
-        // Simulated new data (For demonstration purposes)
-        const newData = "°15-09-2024 :- Change Complete Design Of "Present Tense" Main Page";
+        // Button and Pop-up Elements
+        const notificationButton = document.getElementById('notificationbutton');
+        const notificationPopup = document.getElementById('notificationpopup');
+        const closePopup = document.getElementById('closepopup');
+        const overlay = document.getElementById('overlay');
 
-        // Function to check if notification is viewed (Stored in localStorage)
-        function isBellVisible() {
-            return localStorage.getItem("bellViewed") !== "true";
-        }
+        // Show Pop-up when Notification Button is Clicked
+        notificationButton.addEventListener('click', () => {
+            notificationPopup.style.display = 'block';
+            overlay.style.display = 'block';
+        });
 
-        // Function to display the bell icon if new data is added
-        function showBellIcon() {
-            if (isBellVisible()) {
-                document.getElementById('bell').style.display = 'block';
-            } else {
-                document.getElementById('bell').style.display = 'none';
-            }
-        }
+        // Close Pop-up when Close Button is Clicked
+        closePopup.addEventListener('click', () => {
+            notificationPopup.style.display = 'none';
+            overlay.style.display = 'none';
+        });
 
-        // Function to show popup
-        function showPopup() {
-            document.getElementById('bell-popup').style.display = 'flex';
-            document.getElementById('bell-details').innerText = newData;
-        }
-
-        // Function to hide popup and mark notification as viewed
-        function hidePopup() {
-            document.getElementById('bell-popup').style.display = 'none';
-            localStorage.setItem("bellViewed", "true");  // Mark the notification as viewed
-            document.getElementById('bell').style.display = 'none';  // Hide the bell
-        }
-
-        // Function to detect changes in the info-container
-        function detectChanges() {
-            const infoContainer = document.getElementById('info-container');
-            const lastModified = localStorage.getItem("infoLastModified");
-            
-            if (lastModified && lastModified !== infoContainer.innerHTML) {
-                // Show the bell icon if content has changed
-                localStorage.setItem("bellViewed", "false");
-                showBellIcon();
-            }
-            
-            // Save current content to localStorage
-            localStorage.setItem("infoLastModified", infoContainer.innerHTML);
-        }
-
-        // Event listener to display bell icon on page load if there's new data
-        window.onload = function() {
-            detectChanges();  // Check for changes in info-container
-            showBellIcon();
-        };
-
-        // Periodically check for changes every 5 seconds (for demo purposes)
-        setInterval(detectChanges, 5000);
+        // Close Pop-up when Clicking Outside the Window
+        overlay.addEventListener('click', () => {
+            notificationPopup.style.display = 'none';
+            overlay.style.display = 'none';
+        });
     </script>
 
 
