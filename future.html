@@ -188,38 +188,6 @@
 
         </div>
     </section>
-<div>
-    <button id="chart" onclick="window.location.href='tensechart.html';">Tensechart</button>
-</div>
-
-<style>
-
-
-#chart {
-    background-color: #4CAF50; /* Green background */
-    border: 2px solid black;  /* Black border */
-    color: white;             /* White text */
-    padding: 12px 24px;       /* Padding for the button */
-    text-align: center;       /* Centered text */
-    text-decoration: none;    /* No underline */
-    display: inline-block;    /* Inline-block to allow padding */
-    font-size: 16px;          /* Button font size */
-    cursor: pointer;          /* Pointer cursor on hover */
-    border-radius: 12px;      /* Rounded corners */
-    transition: background-color 0.3s ease; /* Smooth transition */
-}
-
-#chart:hover {
-    background-color: #45a049; /* Darker green on hover */
-}
-
-#chart:active {
-    background-color: #3e8e41; /* Even darker green on click */
-    transform: scale(0.98);    /* Slightly shrink on click */
-}
-
-
-
 
 
 
@@ -252,5 +220,31 @@
     <button class="back-btn" onclick="window.history.back();">Back</button>
     
     
+<style>
+          /* Back button styling */
+          .back-btn {
+            background-color: #2F22FF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            position: fixed;
+            bottom: 70px;
+            left: 20px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 1);
+            transition: transform 0.2s ease;
+          }
+  
+          .back-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+          }
+          
+</style>
+  <div>
+    <button class="back-btn" onclick="window.location.href='tensechart.html';">Tense Chart ✅</button>
+</div>
+
 </body>
 </html>
